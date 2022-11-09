@@ -59,7 +59,7 @@ class Header extends Component {
         return [
           <li key="1"><Payments /></li>,
           <li key="2" style={{ margin: '0 2rem' }}>
-            크레딧: {this.props.auth.credits}
+            코인: {this.props.auth.credits}
           </li>,
           <li key="3"><a href="/api/logout">로그아웃</a></li>
         ];

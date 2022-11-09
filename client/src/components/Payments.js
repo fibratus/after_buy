@@ -1,18 +1,3 @@
-// import React, {Component} from 'react';
-// import StripeCheckout from 'react-stripe-checkout'
-
-// class Payments extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <StripeCheckout amount={500} token={} stripeKey={process.env.REACT_APP_STRIPE_KEY} />        
-//       </div>
-//     );
-//   }
-// }
-
-// export default Payments;
-
 import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
@@ -29,7 +14,7 @@ class Payments extends Component {
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
       >
         <button className="btn">
-          크레딧 구매하기
+          코인 구매하기
         </button>
       </StripeCheckout>
     );
