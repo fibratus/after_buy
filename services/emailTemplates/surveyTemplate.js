@@ -9,10 +9,10 @@ module.exports = survey => {
           <p>설문에 응답해주세요.</p>
           <p>${survey.body}</p>
           <div>
-            <a href="${keys.redirectDomain}/api/surveys/thanks">예</a>
+            <a href="${keys.redirectDomain}/api/surveys/${survey.id}/yes">예</a>
           </div>
           <div>
-            <a href="${keys.redirectDomain}/api/surveys/thanks">아니요</a>
+            <a href="${keys.redirectDomain}/api/surveys/${survey.id}/no">아니요</a>
           </div>
         </div>
       </body>
