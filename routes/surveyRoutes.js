@@ -1,36 +1,39 @@
-const mongoose = require('mongoose')
-const requireLogin = require('../middlewares/requireLogin')
-const requireCredits = require('../middlewares/requireCredits')
-const Mailer = require('../services/Mailer')
-const surveyTemplate = require('../services/emailTemplates/surveyTemplate')
+const mongoose = require('mongoose');
+const requireLogin = require('../middlewares/requireLogin');
+const requireCredits = require('../middlewares/requireCredits');
+const Mailer = require('../services/Mailer');
+const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 
-const Survey = mongoose.model('surveys')
+const Survey = mongoose.model('surveys');
 
 module.exports = app => {
-
   app.get('/api/surveys/thanks', (req, res) => {
-    res.send('설문에 응답해주셔서 감사합니다!')
-  })
-
+    res.send('설문에 응답해주셔서 감사합니다!');
+  });
 
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
-    const {title, subject, body, recipients} = req.body
+    const { title, subject, body, recipients } = req.body;
 
     const survey = new Survey({
-      title, subject, body, recipients: recipients.split(',').map(email => ({ email: email.trim() })),  _user: req.user.id, dateSent: Date.now()
-    })
+      title,
+      subject,
+      body,
+      recipients: recipients.split(',').map(email => ({ email })),
+      _user: req.user.id,
+      dateSent: Date.now()
+    });
+
+    const mailer = new Mailer(survey, surveyTemplate(survey));
 
     try {
-    const mailer = new Mailer(survey, surveyTemplate(survey))
-    await mailer.send()
-    await survey.save();
-    req.user.credits -= 1;
-    const user = await req.user.save();
-    res.send(user)
+      await mailer.send();
+      await survey.save();
+      req.user.credits -= 1;
+      const user = await req.user.save();
+
+      res.send(user);
     } catch (err) {
-      res.status(422).send(err)
+      res.status(422).send(err);
     }
-
-
   });
-}
+};
