@@ -1,6 +1,6 @@
-const _ = require('lodash')
-const Path = require('path-parser');
-const {URL} = require('url')
+const _ = require('lodash');
+const { Path } = require('path-parser');
+const { URL } = require('url');
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
@@ -9,14 +9,17 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 
 const Survey = mongoose.model('surveys');
 
-module.exports = app => {
+module.exports = (app) => {
   app.get('/api/surveys', requireLogin, async (req, res) => {
     const surveys = await Survey.find({ _user: req.user.id }).select({
       recipients: false,
     });
-    
-  app.get('/api/surveys/thanks', (req, res) => {
-    res.send('설문에 응답해주셔서 감사합니다!');
+
+    res.send(surveys);
+  });
+
+  app.get('/api/surveys/:surveyId/:choice', (req, res) => {
+    res.send('설문에 응답해주셔서 감사합니다');
   });
 
   app.post('/api/surveys/webhooks', (req, res) => {
@@ -50,6 +53,7 @@ module.exports = app => {
 
     res.send({});
   });
+
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
     const { title, subject, body, recipients } = req.body;
 
@@ -57,9 +61,11 @@ module.exports = app => {
       title,
       subject,
       body,
-      recipients: recipients.split(',').map(email => ({ email })),
+      recipients: recipients
+        .split(',')
+        .map((email) => ({ email: email.trim() })),
       _user: req.user.id,
-      dateSent: Date.now()
+      dateSent: Date.now(),
     });
 
     const mailer = new Mailer(survey, surveyTemplate(survey));
