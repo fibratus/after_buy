@@ -1,0 +1,14 @@
+.navwrapper {
+  position: relative;
+}
+
+.logobox {
+  position: absolute;
+  top: 40px;
+  left: 500px;
+}
+
+
+.logo {
+  height: 35px;
+}

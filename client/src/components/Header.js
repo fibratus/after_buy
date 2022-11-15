@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
+import styles from './Landing.module.css'
+import logo from '../assets/images/logo.png'
 
 class Header extends Component {
   renderContent() {
@@ -23,7 +25,7 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
+      <nav className={styles.navwrapper}>
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? '/surveys' : '/'}
