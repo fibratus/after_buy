@@ -5,12 +5,16 @@ import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
+import styles from './SurveyFormReview.module.css'
+import Button from '../UI/Button'
+
+
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
       <div key={name}>
-        <label>{label}</label>
-        <div>
+        <label className={styles.label}>{label}</label>
+        <div className={styles.formValues}>
           {formValues[name]}
         </div>
       </div>
@@ -18,22 +22,19 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
   });
 
   return (
-    <div>
-      <h5>Please confirm your entries</h5>
+    <div className={styles.section_surveyformreview}>
+      <h5 className="heading_primary">기입한 사항들을 확인해주세요.</h5>
       {reviewFields}
-      <button
-        className="yellow darken-3 white-text btn-flat"
-        onClick={onCancel}
-      >
-        뒤로가기
-      </button>
-      <button
-        onClick={() => submitSurvey(formValues, history)}
-        className="green btn-flat right white-text"
-      >
-        설문조사 전송
-        <i className="material-icons right">email</i>
-      </button>
+      <div className={styles.btn_container}>
+        <Button secondary onClick={onCancel}>
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          뒤로가기
+        </Button>
+        <Button primary onClick={() => submitSurvey(formValues, history)} >
+          설문조사 전송 <spacer />
+        <ion-icon name="mail-outline"></ion-icon>
+        </Button>
+      </div>
     </div>
   );
 };

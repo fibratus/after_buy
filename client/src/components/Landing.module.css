@@ -1,38 +1,156 @@
 
+.section_landing {
+  padding: 4.8rem 0 3.2rem 0;
+  background-color: bisque;
+}
 
-.landing {
-  position: relative;
+.hero {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+}
+
+.hero_primary {
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.hero_description {
+  margin-bottom: 4.8rem;
+  line-height: 1.6;
+  font-size: 2rem;
+}
+
+.send_emails {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-top: 8rem;
+}
+
+.sent_emails_customers {
+  display: flex;
+}
+
+.sent_emails_customers img {
+  width: 4.8rem;
+  height: 4.8rem;
+  border: 3px solid white;
+  margin-right: -1.6rem;
+  border-radius: 50%;
+}
+
+.sent_emails_customers img:last-child {
+  margin: 0
+}
+
+.sent_emails_description {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.sent_emails_number {
+  color: orange
 }
 
 
-.header {
-  background-size: cover;
-  background-position: top;
-  height: 100%;
+.hero_imgbox img {
   width: 100%;
-
-}
-
-.heading_primary {
-  color: white;
 }
 
 
-.heading_primary_main {
-  display: block;
-  font-size: 60px;
-  letter-spacing: 35px;
+
+/*     FEATURED         */
+
+.logos {
+  margin: 4.8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.heading_primary_sub {
-  display: block;
-  font-weight: 400;
-  letter-spacing: 15px;
+.logos img {
+  height: 4.2rem;
+  filter: brightness(0);
+  opacity: 50%;
 }
 
-.text_box {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+
+/* HOW */
+
+.section_how {
+  padding: 4.8rem 0 3.2rem 0;
+}
+
+.how_container_grid {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.step_number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+}
+
+.step_description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+.step-img-box {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step_img {
+  width: 100%;
+}
+
+
+
+@media (max-width: 48em) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 6.4rem;
+  }
+
+  .hero_textbox,
+  .hero_imgbox {
+    text-align: center;
+  }
+
+  .sent_emails_customers {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero_imgbox img {
+    width: 60%;
+  }
+
+  .logos img {
+    height: 2.4rem;
+  }
 }

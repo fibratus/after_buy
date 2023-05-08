@@ -1,0 +1,43 @@
+
+
+.survey_container {
+  margin: 4.8rem 0;
+}
+
+.survey_heading {
+  font-size: 4.8rem;
+}
+
+.survey_lists {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+}
+
+
+
+.card {
+  text-align: center;
+  margin: 2.4rem 0;
+  border: 3px solid orange;
+}
+
+.card_content {
+
+}
+
+.card_title {
+  font-size: 2.4rem;
+}
+
+.card_body {
+  font-size: 2rem;
+}
+
+.date {
+  font-size: 2rem;
+}
+
+.card_action a{
+  font-size: 2.2rem;
+}

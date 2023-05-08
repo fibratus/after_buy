@@ -1,0 +1,14 @@
+.section_surveyform {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 4.8rem 0;
+  margin: 0 auto;
+}
+
+
+.btn_container {
+  display: grid;
+  grid-template-columns: 35fr 35fr;
+  gap: 2rem;
+}

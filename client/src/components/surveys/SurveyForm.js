@@ -6,6 +6,9 @@ import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails'
 import formFields from './formFields';
 
+import styles from './SurveyForm.module.css'
+import Button from '../UI/Button'
+
 class SurveyForm extends Component {
   renderFields() {
     return _.map(formFields, ({ label, name }) => {
@@ -23,18 +26,28 @@ class SurveyForm extends Component {
 
   render() {
     return (
-      <div>
+      <section className={styles.section_surveyform}>
+        <div class="container">
+        <h1 class="heading_primary">설문지 작성</h1>
         <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
-          <Link to="/surveys" className="red btn-flat white-text">
-            뒤로가기
-          </Link>
-          <button type="submit" className="blue btn-flat right white-text">
+
+          <div className={styles.btn_container}>
+          <Button secondary>
+            <Link className={styles.inner_link}to="/surveys">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+              뒤로가기
+            </Link>
+          </Button>
+          
+          <Button type="submit" primary>
             다음
-            <i className="material-icons right">done</i>
-          </button>
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </Button>
+          </div>
         </form>
-      </div>
+        </div>
+      </section>
     );
   }
 }

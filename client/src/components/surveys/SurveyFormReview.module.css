@@ -1,0 +1,32 @@
+.section_surveyformreview {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 4.8rem 0;
+  margin: 0 auto;
+}
+
+
+.label {
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+.formValues {
+  font-size: 2rem
+}
+
+.button_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.btn_container {
+  display: grid;
+  grid-template-columns: 35fr 35fr;
+  gap: 2rem;
+}
+
+
+

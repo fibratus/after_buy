@@ -7,13 +7,191 @@
 
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
+
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: sans-serif;
   font-weight: 400;
-  line-height: 1.7;
-  color: #777; 
-  padding: 3rem;
+  line-height: 1;
+  overflow-x: hidden;
+  color: #555; 
+}
+
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  /* color: #45260a; */
+  /* color: #343a40; */
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+
+
+.heading_primary {
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  transition: all 0.3s;
+}
+
+
+.btn,
+.btn a:link,
+.btn a:visited {
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #fdf2e9;
+
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+/* Reusable Button Styles*/
+
+/* 
+.border-orange {
+  border: 6px solid orange;
+}
+
+.bg-orange {
+  background-color: orange;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: #333;
+}
+
+.border-gray {
+  border: 6px solid gray;
+}
+
+.bg-gray {
+  border: 6px solid gray;
+}
+
+.border-yellow {
+  border: 6px yellow solid;
+}
+
+.bg-yellow {
+  background-color: yellow;
+}
+
+
+.form-botton {
+
+} */
+
+/* 
+button a {
+  text-decoration: none;
+} */
+
+
+
+
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px  */
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 59em) {
+  html {
+    /* 9px / 16px  */
+    font-size: 50%;
+  }
 }
